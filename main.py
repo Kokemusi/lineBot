@@ -88,4 +88,4 @@ if __name__ == "__main__":
     arg_parser.add_argument('--host', default='0.0.0.0', help='host')
     options = arg_parser.parse_args()
 
-    app.run(debug=options.debug, host=options.host, port=options.port)
+    main.run(debug=options.debug, host=options.host, port=options.port)
