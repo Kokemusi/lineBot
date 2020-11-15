@@ -46,7 +46,7 @@ def application(environ, start_response):
         return create_body('Method Not Allowed')
 
     # get X-Line-Signature header value
-    signature = environ.get(+['HTTP_X_LINE_SIGNATURE']
+    signature = environ.get['HTTP_X_LINE_SIGNATURE']
 
     # get request body as text
     wsgi_input = environ.get['wsgi.input']
