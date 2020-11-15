@@ -17,17 +17,17 @@ from linebot.models import (
 from linebot.utils import PY3
 
 # get channel_secret and channel_access_token from your environment variable
-channel_secret = os.getenv('a2fc5a0a1e8b9172eb03deb54b87952c', None)
-channel_access_token = os.getenv('3/ejprz9CBzClM1nXMfFcSMVUHIiGoz+Uj3LqqqoPXmIJQdtNFLDemvT/bd0kgLVUIVtQSXmieW2yUabTnXx+IOuoj6UiH11eeMEmR1alA+gnDzYy42GSJAltcRPofgKu/VKtHgkGPRhE+eC19yERQdB04t89/1O/w1cDnyilFU=', None)
+YOUR_CHANNEL_SECRET = os.getenv('a2fc5a0a1e8b9172eb03deb54b87952c', None)
+YOUR_CHANNEL_ACCESS_TOKEN = os.getenv('3/ejprz9CBzClM1nXMfFcSMVUHIiGoz+Uj3LqqqoPXmIJQdtNFLDemvT/bd0kgLVUIVtQSXmieW2yUabTnXx+IOuoj6UiH11eeMEmR1alA+gnDzYy42GSJAltcRPofgKu/VKtHgkGPRhE+eC19yERQdB04t89/1O/w1cDnyilFU=', None)
 if channel_secret is None:
-    print('Specify LINE_CHANNEL_SECRET as environment variable.')
+    print('Specify YOUR_CHANNEL_SECRET as environment variable.')
     sys.exit(1)
 if channel_access_token is None:
-    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
+    print('Specify YOUR_CHANNEL_ACCESS_TOKEN as environment variable.')
     sys.exit(1)
 
-line_bot_api = LineBotApi(channel_access_token)
-parser = WebhookParser(channel_secret)
+line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
+parser = WebhookParser(YOUR_CHANNEL_SECRET)
 
 
 def application(environ, start_response):
