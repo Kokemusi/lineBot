@@ -16,6 +16,8 @@ from linebot.models import (
 )
 from linebot.utils import PY3
 
+app = Flask(__name__)
+
 # get channel_secret and channel_access_token from your environment variable
 YOUR_CHANNEL_SECRET = os.getenv('YOUR_CHANNEL_SECRET')
 YOUR_CHANNEL_ACCESS_TOKEN = os.getenv('YOUR_CHANNEL_ACCESS_TOKEN')
@@ -88,4 +90,4 @@ if __name__ == "__main__":
     arg_parser.add_argument('--host', default='0.0.0.0', help='host')
     options = arg_parser.parse_args()
 
-    main.run(debug=options.debug, host=options.host, port=options.port)
+    app.run(debug=options.debug, host=options.host, port=options.port)
