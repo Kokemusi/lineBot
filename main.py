@@ -36,21 +36,21 @@ parser = WebhookParser(YOUR_CHANNEL_SECRET)
 
 def application(environ, start_response):
     # check request path
-    if environ['PATH_INFO'] != '/callback':
+    if environ.get('PATH_INFO') != '/callback':
         start_response('404 Not Found', [])
         return create_body('Not Found')
 
     # check request method
-    if environ['REQUEST_METHOD'] != 'POST':
+    if environ.get['REQUEST_METHOD'] != 'POST':
         start_response('405 Method Not Allowed', [])
         return create_body('Method Not Allowed')
 
     # get X-Line-Signature header value
-    signature = environ['HTTP_X_LINE_SIGNATURE']
+    signature = environ.get(+['HTTP_X_LINE_SIGNATURE']
 
     # get request body as text
-    wsgi_input = environ['wsgi.input']
-    content_length = int(environ['CONTENT_LENGTH'])
+    wsgi_input = environ.get['wsgi.input']
+    content_length = int(environ.get['CONTENT_LENGTH'])
     body = wsgi_input.read(content_length).decode('utf-8')
 
     # parse webhook body
